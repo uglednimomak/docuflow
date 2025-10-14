@@ -1,0 +1,5 @@
+{
+  "name": "DocuFlow AI",
+  "description": "An intelligent document processing application that uses AI to capture, sort, and extract data from your documents, streamlining your workflows. Upload a document to get started.",
+  "requestFramePermissions": []
+}
