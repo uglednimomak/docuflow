@@ -24,10 +24,30 @@
       ::-webkit-scrollbar-thumb:hover {
         background: #64748b; /* slate-500 */
       }
+      
+      /* Ensure the root container takes full viewport height */
+      #root {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
     </style>
   </head>
   <body class="bg-slate-900 text-slate-200">
     <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    
+    <!-- Vite client for HMR in development -->
+    <script type="module" src="/@vite/client"></script>
+    
+    <!-- Main application entry point -->
+    <script type="module">
+      // Ensure we're using the correct base URL
+      const base = import.meta.env.BASE_URL || '/';
+      
+      // Load main application
+      import(base + 'src/main.tsx').catch(err => {
+        console.error('Failed to load application:', err);
+      });
+    </script>
   </body>
 </html>
